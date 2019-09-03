@@ -73,7 +73,7 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 
     
 
-**4⃣️运行程序 执行命令 `./IOTQQ 运行websocket/webapi 服务端口号 如:  ./IOTQQ 8080`**
+**4⃣️运行程序 执行命令 `./IOTQQ` 默认开启8888端口作为WebSokcet/WebApi的服务端口**
 
 **5⃣️一切准备就绪 当你外网服务器IP:PORT 或(内网用户)经过转发OK时 在打开浏览器访问WebHookUrl 浏览器返回OK则可以进行下一步 不通请检查防火墙 or 转发配置**
 

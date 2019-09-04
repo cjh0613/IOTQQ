@@ -50,9 +50,9 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 
 **2⃣️申请GitHub Token 用于GitHubApi访问 默认限制每小时60次请求 有了Token可以5000/h
  申请流程登陆GitHub后->settings-> Developer settings->Developer settings->Generate New Token
- 开启全部Token权限!**
+ 开启全部Token权限!全部☑️**
  
-**3⃣️填写配置文件CoreConf.conf**
+**3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序**
 
 
        #默认使用本地配置文件 暂时不支持集群模式
@@ -64,8 +64,8 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
           Token = ""
           FullName = ""
           IssuesNum = 1
-         #必填 域名端口替换成外网的IP:PORT 
-          WebHookUrl = "http://xxxx.com:8080/v1/Github/WebHook"
+         #必填域名端口替换成外网的IP:PORT 
+          WebHookUrl = ""
           BitFlag = 0
           BitCtrl = 0
           CommentID = 0
@@ -74,6 +74,14 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
     
 
 **4⃣️运行程序 执行命令 `./IOTQQ` 默认开启8888端口作为WebSokcet/WebApi的服务端口**
+
+`服务器用户  如:服务器外网IP 为123.123.123.123 且防火墙允许8888端口 这时访问一下URL http://123.123.123.123:8888/v1/Github/WebHook 如果返回为OK 则此时的URL 为WebHookUrl 将其填写到 CoreConf.conf 的字段WebHookUrl后保存`
+
+`转发用户 公益的FRP有很多 配置好转发规则 将本地的服务端口8888映射出去 如映射到外网的9909端口 这时访问一下 http://公益FRP域名:9909/v1/Github/WebHook 如果返回为OK 则此时的URL 为WebHookUrl 将其填写到 CoreConf.conf 的字段WebHookUrl后保存`
+
+`您的服务器信息均会不暴露 No DDos,No Attack 仅作为GitHub WebHook通知`
+
+`UsersConf目录为本地用户缓存数据 登录设备信息等 便于复用 切勿随意创建 默认启动程序会自动登录`
 
 **5⃣️一切准备就绪 当你外网服务器IP:PORT 或(内网用户)经过转发OK时 在打开浏览器访问WebHookUrl 浏览器返回OK则可以进行下一步 不通请检查防火墙 or 转发配置**
 

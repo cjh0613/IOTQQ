@@ -1,5 +1,10 @@
 IOTQQ --为跨平台而生
 
+
+**运行在Mac平台**
+![MAC](https://camo.githubusercontent.com/77144e212578e053a1ad14f888d4d53191c578fa/68747470733a2f2f73322e617831782e636f6d2f323031392f30392f30342f6e5a376744782e706e67)
+**运行在树莓派3B+ 1G RAM**
+![树莓派](https://camo.githubusercontent.com/aa9f967638205708a2cdaa9378cb2de8907e92c3/68747470733a2f2f73322e617831782e636f6d2f323031392f30392f30342f6e5a37634b312e6d642e706e67)
 ### ⚠️使用协议⚠️
 - **IOTQQ 不得用于包括且不限于~~赌博、色情、云盘、政治~~ 等网络违法违规服务，违者必究**
 - **用户不得使用 IOTQQ 来进行批量业务，如：批量加群，加好友等。**
@@ -46,7 +51,7 @@ IOTQQ --为跨平台而生
 fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请建立小号 初始化所有操作记得清空Bot-Notify 仓库")
 ```
 
-**1⃣️下载对应平台版本的二进制包** 
+**1⃣️下载对应平台版本的二进制包 [传送门](https://github.com/IOTQQ/IOTQQ/releases "1")**
 
 **2⃣️申请GitHub Token 用于GitHubApi访问 默认限制每小时60次请求 有了Token可以5000/h
  申请流程登陆GitHub后->settings-> Developer settings->Developer settings->Generate New Token

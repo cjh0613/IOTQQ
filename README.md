@@ -65,6 +65,8 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 
        #默认使用本地配置文件 暂时不支持集群模式
       EnabledEtcd = false
+      #自定义监听服务端口
+      Port = "0.0.0.0:8888"
         [Etcd]
           Nodes = ["", "", ""]
         [GithubConf]
@@ -90,6 +92,8 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 `您的服务器信息均会不暴露 No DDos,No Attack 仅作为GitHub WebHook通知`
 
 `UsersConf目录为本地用户缓存数据 登录设备信息等 便于复用 切勿随意创建 默认启动程序会自动登录`
+
+`仓库中Plugins与二进制压缩包里Plugins 文件不同 可手动合并`
 
 **5⃣️一切准备就绪 当你外网服务器IP:PORT 或(内网用户)经过转发OK时 在打开浏览器访问WebHookUrl 浏览器返回OK则可以进行下一步 不通请检查防火墙 or 转发配置**
 

@@ -44,6 +44,7 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
         if data.FromUin ~= 0 then
             return 1
         end
+
         str =
             string.format(
             "GroupJoinEvent\n JoinGroup Id %d  \n JoinUin %d \n JoinUserName \n%s InviteUin \n%s",
@@ -56,8 +57,7 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
         log.info("%s", str)
 
         c = mysql.new()
-        ok, err =
-            c:connect({host = "127.0.0.1", port = 3306, database = "dbname", user = "root", password = "root"})
+        ok, err = c:connect({host = "127.0.0.1", port = 3306, database = "qqtoy", user = "root", password = ""})
 
         InviteUid = extData.InviteUin
         JoinUid = extData.JoinUin
@@ -110,18 +110,25 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
             )
             res, err = c:query(sqlstr) --插入邀请信息
 
-            sqlstr = string.format("select count(*) from invites where `InviteUid`= %d", InviteUid)
+            sqlstr = string.format("select * from invites where `InviteUid`= %d", InviteUid)
             res, err = c:query(sqlstr) --判断邀请人是否存在 不存在则插入 否则更新奖励计划
 
-            if tonumber(res[1]["count(*)"]) > 0 then --条件查询的数据存在 ⚠️注意 怎么取数据
+            --if tonumber(res[1]["count(*)"]) > 0 then --条件查询的数据存在 ⚠️注意 怎么取数据
+
+            if tonumber(#res) > 0 then
                 sqlstr =
                     string.format(
                     "UPDATE `invites` SET `InviteCounts` = InviteCounts+1 ,`TotalInvites` = TotalInvites +1 WHERE `InviteUid` = %d",
                     InviteUid
                 )
                 c:query(sqlstr)
-                sqlstr = string.format("select * from invites where `InviteUid`= %d", InviteUid)
-                res, err = c:query(sqlstr)
+
+                if InviteUid == 0 then --排除主动搜索进群的 情况
+                    c.close(c)
+                    return 1
+                end
+                --sqlstr = string.format("select * from invites where `InviteUid`= %d", InviteUid)
+                --res, err = c:query(sqlstr)
                 if tonumber(res[1].InviteCounts) == 10 then
                     sqlstr = string.format("UPDATE `invites` SET `InviteCounts` = 0  WHERE `InviteUid` = %d", InviteUid)
                     c:query(sqlstr)
@@ -172,8 +179,7 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
                 res, err = c:query(sqlstr) --插入邀请信息
                 log.notice("%s", "已插入邀请者数据")
             end
-            if err == nil then
-            end
+
             c.close(c)
         end
     end

@@ -104,7 +104,7 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 
 - **服务运行成功后访问URL http://IP:PORT/v1/Github/InstallService 初始化成功后控制台会提示 `Auth初始化完成` 若未提示 重复上述操作 初始化完成后就可以 🌊了**
 
-- **获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRCOde 扫码登陆即可**
+- **获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRcode 扫码登陆即可**
 
 ------------
 

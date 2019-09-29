@@ -162,7 +162,7 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
                             content = string.format(
                                 [[<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><msg serviceID="1" templateID="1" action="" brief="&#91;红包奖励&#93;" sourceMsgId="0" url="" flag="2" adverSign="0" multiMsgFlag="0"><item layout="0"><title size="38" color="#9900CC" style="1">🆕10人任务奖励🆕</title></item><item layout="0"><hr hidden="false" style="0" /></item><item layout="6"><summary color="#FF0033">1⃣️%d累计邀请%d人</summary><summary color="#FF0099">💪继续努力💪</summary></item><source name="" icon="" action="" appid="-1" /></msg>]],
                                 InviteUid,
-                                res[1].InviteCounts
+                                res[1].TotalInvites
                             ),
                             atUser = 0,
                             groupid = 0

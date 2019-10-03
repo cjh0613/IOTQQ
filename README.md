@@ -8,6 +8,14 @@ IOTQQ --为跨平台而生
 
 ![树莓派](https://camo.githubusercontent.com/aa9f967638205708a2cdaa9378cb2de8907e92c3/68747470733a2f2f73322e617831782e636f6d2f323031392f30392f30342f6e5a37634b312e6d642e706e67)
 
+**运行在电视盒子 N1**
+![电视盒子](https://camo.githubusercontent.com/fa9594a6577f447bd97f33ac40ca2a824fe5dd6b/68747470733a2f2f73322e617831782e636f6d2f323031392f31302f30332f75304e7765502e706e67)
+![电视盒子](https://camo.githubusercontent.com/32c5b864b035a04b094bf77de272b1fa6336434e/68747470733a2f2f73322e617831782e636f6d2f323031392f31302f30332f75304e4946552e706e67)
+
+**运行在路由器HIWI-FI**
+
+![电视盒子](https://camo.githubusercontent.com/139a303674c16c57c98e94fc729cd17094127214/68747470733a2f2f73322e617831782e636f6d2f323031392f31302f30332f75304e76544b2e6d642e706e67)
+
 ### ⚠️使用协议⚠️
 - **IOTQQ 不得用于包括且不限于~~赌博、色情、云盘、政治~~ 等网络违法违规服务，违者必究**
 - **用户不得使用 IOTQQ 来进行批量业务，如：批量加群，加好友等。**

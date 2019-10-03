@@ -1,18 +1,18 @@
 {
-  "front-version": "2.19.2",
+  "front-version": "2.21.1",
   "version": 3,
   "nodes": [
     {
       "type": "Project",
       "id": "9fbe9633-d014-48f1-b11e-83ac3ea32982",
-      "lastModified": "2019-09-01T19:18:48.135+08:00",
+      "lastModified": "2019-10-03T16:49:52.957+08:00",
       "name": "QQWebService"
     },
     {
       "type": "Scenario",
       "description": "",
       "id": "57d318ae-cb53-4708-bc40-cbbae09df1d7",
-      "lastModified": "2019-09-01T19:11:06.315+08:00",
+      "lastModified": "2019-10-03T16:51:27.271+08:00",
       "name": "TestDemo",
       "requestOrder": [
         "发送好友文字消息",
@@ -51,7 +51,9 @@
         "发送群表情红包",
         "发送群成语红包",
         "发送个人普通红包",
-        "发送个人口令红包"
+        "发送个人口令红包",
+        "撤回群成员消息",
+        "禁言群成员或全员禁言"
       ],
       "parentId": "9fbe9633-d014-48f1-b11e-83ac3ea32982"
     },
@@ -70,7 +72,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"toUser\":534706350,\"sendToType\":1,\"sendMsgType\":\"TextMsg\",\"content\":\"http://apis.frp.luckylxh.top/v1/GetLevelInfo?qq=123456789&fuin=123456\",\"groupid\":0,\"atUser\":0}"
+        "textBody": "{\"toUser\":0,\"sendToType\":1,\"sendMsgType\":\"TextMsg\",\"content\":\"http://apis.frp.luckylxh.top/v1/GetLevelInfo?qq=123456789&fuin=123456\",\"groupid\":0,\"atUser\":0}"
       },
       "headersType": "Form",
       "uri": {
@@ -93,7 +95,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":0}",
       "id": "fe62c730-5cce-4497-bddd-393c798c3b7e",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
       "name": "发送好友文字消息",
       "headers": [
         {
@@ -143,13 +145,18 @@
       },
       "description": "获取好友列表\n返回json中 StartIndex == Friend_count 说明拉取好友列表完毕 否则 传入StartIndex 继续请求",
       "id": "8c3cd19a-6ebc-47bd-b026-2b07da937002",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "获取好友列表",
       "headers": [
         {
           "enabled": true,
           "name": "Content-Type",
           "value": "application/json"
+        },
+        {
+          "enabled": true,
+          "name": "Referer",
+          "value": ""
         }
       ],
       "metaInfo": {},
@@ -170,7 +177,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"toUser\":534706350,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"http://123.151.76.120:80/?ver=2&rkey=3062020101045b305902010102010002041fdef8ae042431416931704d514258704d397553645f3964516737736a30766f516d474e75757765713202045d6a6ead041f0000000866696c6574797065000000013000000005636f64656300000001310400&voice_codec=1&filetype=0\",\"voiceBase64Buf\":\"\"}"
+        "textBody": "{\"toUser\":0,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"http://123.151.76.120:80/?ver=2&rkey=3062020101045b305902010102010002041fdef8ae042431416931704d514258704d397553645f3964516737736a30766f516d474e75757765713202045d6a6ead041f0000000866696c6574797065000000013000000005636f64656300000001310400&voice_codec=1&filetype=0\",\"voiceBase64Buf\":\"\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -193,7 +200,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
       "id": "46812711-52d3-4ac2-a2ed-949033079390",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "发送好友语音消息",
       "headers": [
         {
@@ -220,7 +227,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"toUser\":534706350,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"12313\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/2995543538/316394645-2534335053-E064C691417AE925B385C53C7D6D68A5/0?vuin=534706350&term=255&pictype=0\",\"picBase64Buf\":\"\",\"fileMd5\":\"\"}"
+        "textBody": "{\"toUser\":0,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"12313\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/2995543538/316394645-2534335053-E064C691417AE925B385C53C7D6D68A5/0?vuin=534706350&term=255&pictype=0\",\"picBase64Buf\":\"\",\"fileMd5\":\"\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -243,7 +250,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"123\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\",\"fileMd5\":\"经过base64处理过\"}图片大小控制在1m picUrl 和picBase64Buf  fileMd5 3选一 优先处理fileMd5字段",
       "id": "568a757a-cca3-40ae-8994-231b871d3622",
-      "lastModified": "2019-09-01T19:12:17.440+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送好友图片消息",
       "headers": [
         {
@@ -270,7 +277,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"ActionType\":3,\"GroupId\":960839480,\"ActionUid\":123456789,\"Content\":\"你好通过一下\"}"
+        "textBody": "{\"ActionType\":3,\"GroupId\":0,\"ActionUid\":0,\"Content\":\"你好通过一下\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -293,7 +300,7 @@
       },
       "description": "添加群组 新号老号控制好频率 ActionType =8 拉人入群  -->{\"ActionType\":8,\"GroupId\":123456,\"ActionUid\":987654,\"Content\":\"\"}\nActionType=1 加入群聊 -->{\"ActionType\":1,\"GroupId\":123456,\"ActionUid\":0,\"Content\":\"你好通过一下\"}\nActionType=2 退出群聊 -->{\"ActionType\":2,\"GroupId\":123456,\"ActionUid\":0,\"Content\":\"\"}\nActionType=3 移出群聊 -->{\"ActionType\":3,\"GroupId\":123456,\"ActionUid\":0,\"Content\":\"\"}",
       "id": "518d93e3-4301-46da-b943-7b5e44652eae",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "QQ群功能包加群拉人..",
       "headers": [
         {
@@ -334,9 +341,9 @@
         "host": "127.0.0.1:8888",
         "path": "/v1/ClusterInfo"
       },
-      "description": "添加群组 新号老号控制好频率 {\"GroupID\":960839480,\"Content\":\"新人学习\"}",
+      "description": "",
       "id": "537387fd-6e25-4451-9f79-68a90ad21c79",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "获取当前集群Cluster信息",
       "headers": [],
       "metaInfo": {},
@@ -357,7 +364,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"toUser\":960839480,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"数据统计http://s2.natfrp.com:4327/v1/ClusterInfo\",\"groupid\":0,\"atUser\":0}"
+        "textBody": "{\"toUser\":0,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"数据统计\",\"groupid\":0,\"atUser\":103259869}"
       },
       "headersType": "Form",
       "uri": {
@@ -380,7 +387,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":QQ号,不默认为0}",
       "id": "b3c2c998-a2aa-4be9-8132-19e43247633c",
-      "lastModified": "2019-09-01T19:13:15.945+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送群文字消息",
       "headers": [
         {
@@ -407,7 +414,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"toUser\":960839480,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"http://123.151.76.120:80/?ver=2&rkey=3062020101045b305902010102010002041fdef8ae042431416931704d514258704d397553645f3964516737736a30766f516d474e75757765713202045d6a6ead041f0000000866696c6574797065000000013000000005636f64656300000001310400&voice_codec=1&filetype=0\",\"voiceBase64Buf\":\"\"}"
+        "textBody": "{\"toUser\":0,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"http://123.151.76.120:80/?ver=2&rkey=3062020101045b305902010102010002041fdef8ae042431416931704d514258704d397553645f3964516737736a30766f516d474e75757765713202045d6a6ead041f0000000866696c6574797065000000013000000005636f64656300000001310400&voice_codec=1&filetype=0\",\"voiceBase64Buf\":\"\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -430,7 +437,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
       "id": "bdc7747c-62d3-40cc-86dd-6da2059296e0",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送群语音消息",
       "headers": [
         {
@@ -458,7 +465,7 @@
         "bodyType": "Text",
         "autoSetLength": true,
         "textBodyEditorHeight": 240,
-        "textBody": "{\"toUser\":960839480,\"sendToType\":2,\"sendMsgType\":\"PicMsg\",\"content\":\"8888\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/1156259509/939122730-2534335053-3359D374960292AD36227D5866016843/0?vuin=534706350&term=255&pictype=0\",\"picBase64Buf\":\"\",\"fileMd5\":\"\"}"
+        "textBody": "{\"toUser\":0,\"sendToType\":2,\"sendMsgType\":\"PicMsg\",\"content\":\"8888\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/1156259509/939122730-2534335053-3359D374960292AD36227D5866016843/0?vuin=534706350&term=255&pictype=0\",\"picBase64Buf\":\"\",\"fileMd5\":\"\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -481,7 +488,7 @@
       },
       "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"文字不为空则为图文消息否则是图片\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\",\"fileMd5\":\"经过base64处理过\"}图片大小控制在1m picUrl 和picBase64Buf 二选一 优先处理fileMd5字段",
       "id": "c8766fa2-607b-4ef1-809c-bb3258a4fc3f",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送群图片消息",
       "headers": [
         {
@@ -531,7 +538,7 @@
       },
       "description": "{\"toUser\":私聊QQ号\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":Group🆔,\"atUser\":QQ号不默认为0}",
       "id": "295f284d-371d-40f1-8760-5d6b06c3ec27",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "发送私聊字消息",
       "headers": [
         {
@@ -581,7 +588,7 @@
       },
       "description": "{\"toUser\":私聊QQ号,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":Group🆔,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
       "id": "1823d6c3-cf92-4527-bb6e-ad3a3c4d7b57",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "发送私聊语音消息",
       "headers": [
         {
@@ -631,7 +638,7 @@
       },
       "description": "{\"toUser\":私聊QQ号,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"文字不为空则为图文消息否则是图片\",\"groupid\":Group🆔,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\"}图片大小控制在1m picUrl 和picBase64Buf 二选一1m",
       "id": "93d1aa27-d72b-48b4-96aa-ff0a48096d31",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送私聊图片消息",
       "headers": [
         {
@@ -681,7 +688,7 @@
       },
       "description": "添加群组 新号老号控制好频率 {\"GroupID\":960839480,\"Content\":\"新人学习\"}",
       "id": "d7cc9e7f-212e-4bd1-a1b1-aa5639ec7121",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
       "name": "搜索QQ群组",
       "headers": [
         {
@@ -708,9 +715,13 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"User\":123456,\"PassWord\":\"pass\",\"VerityCode\":\"ywyn\",\"ClusterIP\":\"\"}"
+        "textBody": "{\"User\":0,\"PassWord\":\"0\",\"VerityCode\":\"\",\"ClusterIP\":\"\",\"UserSec\":\"\"}"
       },
       "headersType": "Form",
+      "retryConfiguration": {
+        "intervalInSeconds": 10,
+        "retryCount": 1
+      },
       "uri": {
         "query": {
           "delimiter": "&",
@@ -725,7 +736,7 @@
       },
       "description": "1⃣️首次登陆 {\"User\":111111,\"PassWord\":\"222222\",\"VerityCode\":\"\",\"ClusterIP\",\"\"}\n2⃣️带验证码登陆 {\"User\":111111,\"PassWord\":\"222222\",\"VerityCode\":\"1234\",,\"ClusterIP\",\"\"} 4位字符 字母 验证码错误将会被刷新\n登陆请在30秒内完成 否则将自动释放链接",
       "id": "ca41c0bb-ebf6-4675-b64d-3974427e1364",
-      "lastModified": "2019-09-01T19:14:13.382+08:00",
+      "lastModified": "2019-10-03T16:49:52.957+08:00",
       "name": "账号密码登陆",
       "headers": [
         {
@@ -734,6 +745,7 @@
           "value": "application/json"
         }
       ],
+      "assertions": [],
       "metaInfo": {},
       "parentId": "57d318ae-cb53-4708-bc40-cbbae09df1d7"
     },
@@ -764,11 +776,6 @@
               "enabled": true,
               "name": "qq",
               "value": "123456789"
-            },
-            {
-              "enabled": true,
-              "name": "",
-              "value": ""
             }
           ]
         },
@@ -781,7 +788,7 @@
       },
       "description": "获取群列表\n首次请求 {\"NextToken\":\"\"} 第二次请求NextToken 请填值 返回json 中 TroopList==null 时说明拉取群列表完成",
       "id": "bb7acb41-1db9-42f5-9d4e-9d41d06f058d",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "获取群列表",
       "headers": [
         {
@@ -808,7 +815,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"GroupUin\":654264644,\"LastUin\":0}"
+        "textBody": "{\"GroupUin\":0,\"LastUin\":0}"
       },
       "headersType": "Form",
       "uri": {
@@ -829,9 +836,9 @@
         "host": "127.0.0.1:8888",
         "path": "/v1/GetTroopMemberLists"
       },
-      "description": "获取群列表\n首次请求{\"GroupUin\":949630970,\"LastUin\":0}第二次请求NextToken 请填值\n返回json 中 LastUin==0 时说明拉取群成员列表完成",
+      "description": "获取群列表\n首次请求{\"GroupUin\":0,\"LastUin\":0}第二次请求NextToken 请填值\n返回json 中 LastUin==0 时说明拉取群成员列表完成",
       "id": "d62f459a-51de-4027-9f99-7fbcda97c967",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "获取群成员列表",
       "headers": [
         {
@@ -880,7 +887,7 @@
       },
       "description": "获取群列表\n首次请求{\"GroupUin\":949630970,\"LastUin\":0}第二次请求NextToken 请填值\n返回json 中 LastUin==0 时说明拉取群成员列表完成",
       "id": "1ccc8f0e-e330-4064-9ca3-bbad21b8de71",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "刷新Key二次登陆",
       "headers": [],
       "metaInfo": {},
@@ -928,7 +935,7 @@
       },
       "description": "Fuin为要查询的QQ号",
       "id": "fc73a9a5-1d06-47d7-8827-8b7078f51ca7",
-      "lastModified": "2019-09-01T19:15:01.713+08:00",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
       "name": "查询用户等级",
       "headers": [],
       "metaInfo": {},
@@ -972,7 +979,7 @@
       },
       "description": "{\"Uid\":0,\"Fid\":0} fid 需要被赞的QQ Uid 触发动作的QQ号 详情看Lua代码",
       "id": "2bf7988d-2313-46c4-baec-e23618fa7859",
-      "lastModified": "2019-09-01T19:18:48.135+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "测试赞",
       "headers": [
         {
@@ -1021,7 +1028,7 @@
       },
       "description": "",
       "id": "6204d587-1c07-4bfd-9935-033b6375284e",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "获取钱包余额相关Key",
       "headers": [],
       "metaInfo": {},
@@ -1042,7 +1049,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":6}"
+        "textBody": "{\"RevGroupid\":0,\"RecvUid\":0,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":6}"
       },
       "headersType": "Form",
       "uri": {
@@ -1065,7 +1072,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":6}",
       "id": "61060317-16e8-441a-9601-3de417283bff",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送群专属红包",
       "headers": [
         {
@@ -1092,7 +1099,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"TransferUid\":534706350,\"Amount\":1,\"Paypass\":\"123456\"}"
+        "textBody": "{\"TransferUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -1102,7 +1109,7 @@
             {
               "enabled": true,
               "name": "qq",
-              "value": "31814349"
+              "value": "123456789"
             }
           ]
         },
@@ -1113,9 +1120,9 @@
         "host": "127.0.0.1:8888",
         "path": "/v1/TencentPay/SendTransfer"
       },
-      "description": "{\"RevGroupid\":960839480,\"SingleUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}",
+      "description": "{\"TransferUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}",
       "id": "648f371f-c322-4a43-9c62-df125f6d6269",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "转账",
       "headers": [
         {
@@ -1152,7 +1159,7 @@
             {
               "enabled": true,
               "name": "qq",
-              "value": "31814349"
+              "value": "123456789"
             }
           ]
         },
@@ -1165,7 +1172,7 @@
       },
       "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
       "id": "dabd346d-58ea-48ef-b185-5b29a7c909b7",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
       "name": "发送QQ空间口令红包",
       "headers": [
         {
@@ -1202,7 +1209,7 @@
             {
               "enabled": true,
               "name": "qq",
-              "value": "31814349"
+              "value": "123456789"
             }
           ]
         },
@@ -1215,7 +1222,7 @@
       },
       "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
       "id": "59d13b05-7f3e-41e6-9858-58d6999b214b",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送QQ空间密码红包",
       "headers": [
         {
@@ -1252,7 +1259,7 @@
             {
               "enabled": true,
               "name": "qq",
-              "value": "31814349"
+              "value": "123456789"
             }
           ]
         },
@@ -1265,7 +1272,7 @@
       },
       "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
       "id": "0080f242-38dd-42b2-b01f-83188504d1df",
-      "lastModified": "2019-09-01T19:11:06.315+08:00",
+      "lastModified": "2019-10-03T16:49:37.506+08:00",
       "name": "发送QQ空间问题红包",
       "headers": [
         {
@@ -1292,7 +1299,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"AddUserUid\":2806337730,\"FromGroupID\":0,\"AddFromSource\":2004,\"Content\":\"加好友，互助浇水\"}"
+        "textBody": "{\"AddUserUid\":0,\"FromGroupID\":0,\"AddFromSource\":2004,\"Content\":\"加好友，互助浇水\"}"
       },
       "headersType": "Form",
       "uri": {
@@ -1315,7 +1322,7 @@
       },
       "description": "添加好友 新号老号控制好频率  AddFromSource--来源2011 空间2020 QQ搜索 2004群组 2005讨论组",
       "id": "54f1c821-f9b9-4440-a87a-2ad65b08c40b",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "添加QQ好友",
       "headers": [
         {
@@ -1365,7 +1372,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"SingleUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}",
       "id": "70a2e27e-c556-47c4-ba43-8da7dbaa52f6",
-      "lastModified": "2019-09-01T19:11:06.317+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送QQ空间图文",
       "headers": [
         {
@@ -1409,7 +1416,7 @@
       },
       "description": "{\"ConsoleLevel\":-1,\"FileLevel\":3}\nConsoleLevel -1关闭所有输出 8 开启所有输出\nFileLevel 3 只输出错误日志到文件 8不输出任何日志文件",
       "id": "130fd5e0-c403-40c2-901b-624c888b0b3e",
-      "lastModified": "2019-09-01T19:11:06.316+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "全局Log",
       "headers": [
         {
@@ -1450,11 +1457,11 @@
           "version": "V11"
         },
         "host": "127.0.0.1:8888",
-        "path": "/v1/Login/GetQRCOde"
+        "path": "/v1/Login/GetQRcode"
       },
       "description": "",
       "id": "696a84ef-036c-4dd1-afaf-8497c9d00b1a",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "获取登陆二维码",
       "headers": [],
       "metaInfo": {
@@ -1477,7 +1484,7 @@
         },
         "bodyType": "Text",
         "autoSetLength": true,
-        "textBody": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":0}"
+        "textBody": "{\"RevGroupid\":0,\"RecvUid\":0,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":0}"
       },
       "headersType": "Form",
       "uri": {
@@ -1498,9 +1505,9 @@
         "host": "127.0.0.1:8888",
         "path": "/v1/TencentPay/SendSingleRed"
       },
-      "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":0}",
+      "description": "{\"RevGroupid\":0,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":0}",
       "id": "7e26bfe5-224c-4eb7-95df-ed4d0c7e6b20",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送群拼手气红包",
       "headers": [
         {
@@ -1550,7 +1557,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":1}",
       "id": "9022b0a6-8351-4043-a464-6aadc5eafe41",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送群普通红包",
       "headers": [
         {
@@ -1600,7 +1607,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":2}",
       "id": "f091b718-4ac5-4de5-a39e-131388d3f212",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
       "name": "发送群口令红包",
       "headers": [
         {
@@ -1650,7 +1657,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":3}",
       "id": "05d2fd92-2970-4a36-9c26-139e7da3ea50",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "发送群语音红包",
       "headers": [
         {
@@ -1700,7 +1707,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1365,\"RecvType\":3,\"RedType\":4}",
       "id": "2abc44e1-801f-41a3-9771-ad265f49094e",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.507+08:00",
       "name": "发送群表情红包",
       "headers": [
         {
@@ -1750,7 +1757,7 @@
       },
       "description": "{\"RevGroupid\":960839480,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"一个顶俩\",\"Skinid\":1365,\"RecvType\":3,\"RedType\":5}",
       "id": "82a9b5e5-70b5-40a0-beac-beed1f26d13e",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送群成语红包",
       "headers": [
         {
@@ -1800,7 +1807,7 @@
       },
       "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":1,\"RedType\":1}",
       "id": "ac9c56c3-d6f6-4721-9842-e34c02373d13",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.509+08:00",
       "name": "发送个人普通红包",
       "headers": [
         {
@@ -1850,8 +1857,110 @@
       },
       "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":1,\"RedType\":2}",
       "id": "69a432a9-8cf9-4bab-8a0c-e743078236dc",
-      "lastModified": "2019-09-01T19:11:06.318+08:00",
+      "lastModified": "2019-10-03T16:49:37.508+08:00",
       "name": "发送个人口令红包",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "57d318ae-cb53-4708-bc40-cbbae09df1d7"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBodyEditorHeight": 240,
+        "textBody": "{\"GroupID\":0,\"MsgSeq\":0,\"MsgRandom\":0}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "qq",
+              "value": "123456789"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "127.0.0.1:8888",
+        "path": "/v1/RevokeMsg"
+      },
+      "description": "{\"GroupID\":0,\"MsgSeq\":0,\"MsgRandom\":0}参数来自于 lua  ReceiveGroupMsg  事件  data 数据 data.MsgSeq, data.MsgRandom 可撤回自己发的消息 或管理员权限撤回群成员消息",
+      "id": "2a9284c1-d2e1-489f-a54a-65ac18d7cda0",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
+      "name": "撤回群成员消息",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "57d318ae-cb53-4708-bc40-cbbae09df1d7"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBodyEditorHeight": 240,
+        "textBody": "{\"ShutUpType\":0,\"GroupID\":0,\"ShutUid\":0,\"ShutTime\":0}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "qq",
+              "value": "123456789"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "127.0.0.1:8888",
+        "path": "/v1/ShoutUp"
+      },
+      "description": "ShutUpType==0 禁言群成员  {\"ShutUpType\":0,\"GroupID\":群ID,\"ShutUid\":被禁言UID,\"ShutTime\":44640(禁言时间)} 禁言时间单位为分钟 ShutTime=0 取消禁言\nShutUpType==1 全员禁言  ShutFlag=15 全员禁言 ShutFlag=0 关闭全员禁言 {\"ShutUpType\":1,\"GroupID\":960839480,\"ShutFlag\":0,\"ShutTime\":0}",
+      "id": "2b57885a-3319-4b25-8939-f2da00e30724",
+      "lastModified": "2019-10-03T16:49:37.510+08:00",
+      "name": "禁言群成员或全员禁言",
       "headers": [
         {
           "enabled": true,

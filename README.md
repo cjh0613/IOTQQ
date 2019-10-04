@@ -82,7 +82,7 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
           Token = ""
           FullName = ""
           IssuesNum = 1
-         #必填域名端口替换成外网的IP:PORT 
+         #必填域名端口替换成外网的http://IP:PORT/v1/Github/WebHook
           WebHookUrl = ""
           BitFlag = 0
           BitCtrl = 0

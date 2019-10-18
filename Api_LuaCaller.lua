@@ -1,3 +1,4 @@
+--[[v2.0.0]]
 local log = require("log")
 local Api = require("coreApi")
 local json = require("json")

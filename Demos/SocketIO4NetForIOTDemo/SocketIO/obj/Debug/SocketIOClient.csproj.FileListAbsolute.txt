@@ -1,0 +1,10 @@
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\bin\debug\SocketIOClient.xml
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\bin\debug\SocketIOClient.dll
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\bin\debug\SocketIOClient.pdb
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\bin\debug\SocketIOClient.dll.CodeAnalysisLog.xml
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\bin\debug\SocketIOClient.dll.lastcodeanalysissucceeded
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\SocketIO\obj\Debug\SocketIOClient.csprojAssemblyReference.cache
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\SocketIO\obj\Debug\SocketIOClient.csproj.CoreCompileInputs.cache
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\SocketIO\obj\Debug\SocketIOClient.csproj.CopyComplete
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\SocketIO\obj\Debug\SocketIOClient.dll
+C:\Users\HelloKitty\Desktop\SocketIO4Ne\SocketIO\obj\Debug\SocketIOClient.pdb

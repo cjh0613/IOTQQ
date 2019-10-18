@@ -1,0 +1,8 @@
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\bin\Release\SocketIOClient.XML
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\bin\Release\SocketIOClient.dll
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\bin\Release\SocketIOClient.pdb
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\SocketIO\obj\Release\SocketIOClient.csprojAssemblyReference.cache
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\SocketIO\obj\Release\SocketIOClient.csproj.CoreCompileInputs.cache
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\SocketIO\obj\Release\SocketIOClient.csproj.CopyComplete
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\SocketIO\obj\Release\SocketIOClient.dll
+C:\Users\HelloKitty\Desktop\SocketIO4NetForIOTDemo\SocketIO\obj\Release\SocketIOClient.pdb

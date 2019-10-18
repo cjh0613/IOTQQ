@@ -1,5 +1,5 @@
 local log = require("log")
-local api = require("coreApi")
+local Api = require("coreApi")
 local json = require("json")
 local http = require("http")
 
@@ -16,7 +16,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
             return 1
         end
 
-        cookies = api.api_GetUserCook(CurrentQQ)
+        cookies = Api.Api_GetUserCook(CurrentQQ)
 
         response, error_message =
             http.request(
@@ -41,8 +41,8 @@ function ReceiveGroupMsg(CurrentQQ, data)
             return 1
         end
 
-        apiRet =
-            api.api_SendMsg(
+        ApiRet =
+            Api.Api_SendMsg(
             CurrentQQ,
             {
                 toUser = data.FromGroupId,
@@ -65,18 +65,14 @@ function ReceiveGroupMsg(CurrentQQ, data)
                 atUser = 0
             }
         )
-        log.notice("From Lua SendMsg Ret-->%d", apiRet.Ret)
+        log.notice("From Lua SendMsg Ret-->%d", ApiRet.Ret)
     end
 
     return 1
 end
-function ReceiveFriendEvents(CurrentQQ, data, extData)
+function ReceiveEvents(CurrentQQ, data, extData)
     return 1
 end
-function ReceiveGroupEvents(CurrentQQ, data, extData)
-    return 1
-end
-
 function url_encode(str)
     if (str) then
         str = string.gsub(str, "\n", "\r\n")

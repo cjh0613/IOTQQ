@@ -1,5 +1,5 @@
 local log = require("log")
-local api = require("coreApi")
+local Api = require("coreApi")
 local json = require("json")
 local http = require("http")
 local mysql = require("mysql")
@@ -33,11 +33,8 @@ end
 function ReceiveGroupMsg(CurrentQQ, data)
     return 1
 end
-function ReceiveFriendEvents(CurrentQQ, data, extData)
-    return 1
-end
-function ReceiveGroupEvents(CurrentQQ, data, extData)
-    if (string.find(data.MsgType, "GroupJoinEvent") == 1) then
+function ReceiveEvents(CurrentQQ, data, extData)
+    if (string.find(data.MsgType, "ON_EVENT_GROUP_JOIN") == 1) then
         if CurrentQQ ~= "QQ号" then -- 处理欲响应的QQ或群组 判断事件来源于哪个QQ 哪个群
             return 1
         end
@@ -49,8 +46,8 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
             string.format(
             "GroupJoinEvent\n JoinGroup Id %d  \n JoinUin %d \n JoinUserName \n%s InviteUin \n%s",
             data.FromUin,
-            extData.JoinUin,
-            extData.JoinName,
+            extData.UserID,
+            extData.UserName,
             extData.InviteUin --非管理员权限此值是0
         )
 
@@ -81,9 +78,9 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
                 response, error_message =
                     http.request(
                     "POST",
-                    "http://127.0.0.1:8888/v1/TencentPay/SendSingleRed",
+                    "http://127.0.0.1:8888/v1/LuaApiCaller",
                     {
-                        query = "qq=" .. CurrentQQ,
+                        query = "qq=" .. CurrentQQ .. "&funcname=SendSingleRed&timeout=10",
                         headers = {
                             Accept = "*/*"
                         },
@@ -138,9 +135,9 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
                     response, error_message =
                         http.request(
                         "POST",
-                        "http://127.0.0.1:8888/v1/TencentPay/SendSingleRed",
+                        "http://127.0.0.1:8888/v1/LuaApiCaller",
                         {
-                            query = "qq=" .. CurrentQQ,
+                            query = "qq=" .. CurrentQQ .. "&funcname=SendSingleRed&timeout=10",
                             headers = {
                                 Accept = "*/*"
                             },
@@ -153,7 +150,7 @@ function ReceiveGroupEvents(CurrentQQ, data, extData)
                     )
                     local html = response.body
                     log.notice("%s\n", html)
-                    api.api_SendMsg(
+                    Api.Api_SendMsg(
                         CurrentQQ,
                         {
                             toUser = GroupID,

@@ -1,5 +1,5 @@
 local log = require("log")
-local api = require("coreApi")
+local Api = require("coreApi")
 local json = require("json")
 local http = require("http")
 
@@ -14,7 +14,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
         --log.notice("From Lua data.FromGroupId %d", data.FromGroupId)
 
         luaRes =
-            api.api_SendMsg(
+            Api.Api_SendMsg(
             CurrentQQ,
             {
                 toUser = data.FromGroupId,
@@ -27,11 +27,5 @@ function ReceiveGroupMsg(CurrentQQ, data)
         )
         log.notice("From Lua SendMsg Ret-->%d", luaRes.Ret)
     end
-    return 1
-end
-function ReceiveFriendEvents(CurrentQQ, data, extData)
-    return 1
-end
-function ReceiveGroupEvents(CurrentQQ, data, extData)
     return 1
 end

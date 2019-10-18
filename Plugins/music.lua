@@ -1,5 +1,5 @@
 local log = require("log")
-local api = require("coreApi")
+local Api = require("coreApi")
 local json = require("json")
 local http = require("http")
 
@@ -33,8 +33,8 @@ function ReceiveGroupMsg(CurrentQQ, data)
             songID = j.data.song.list[1].id
         end
         if songID ~= "" then
-            apiRet =
-                api.api_SendMsg(
+            ApiRet =
+                Api.Api_SendMsg(
                 CurrentQQ,
                 {
                     toUser = data.FromGroupId,
@@ -51,14 +51,11 @@ function ReceiveGroupMsg(CurrentQQ, data)
             html = nil
             str = nil
             j = nil
-            log.notice("From Lua SendMsg Ret-->%d", apiRet.Ret)
+            log.notice("From Lua SendMsg Ret-->%d", ApiRet.Ret)
         end
     end
     return 1
 end
-function ReceiveFriendEvents(CurrentQQ, data, extData)
-    return 1
-end
-function ReceiveGroupEvents(CurrentQQ, data, extData)
+function ReceiveEvents(CurrentQQ, data, extData)
     return 1
 end

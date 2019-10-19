@@ -124,47 +124,33 @@ fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请�
 
 ###### WebPlugin APi
 - 请勿修改 WebPlugins目录下的任意文件名以及文件内容的函数名 否则部分WebAP接口会失效
-例如 `Api_AddFriend.lua` 文件内容 可修改代码逻辑
 
-```lua
-local log = require("log")
-local api = require("coreApi")
-function Api_AddFriend(CurrentQQ, data)
-  --Coding start
-    luaRes = api.api_GetUserAddFriendSetting(CurrentQQ, data.AddUserUid, data.Content)
-    log.notice("From Lua api_GetUserAddFriendSetting Ret\n%d", luaRes.AddType)
-    luaRes.Content = data.Content
-    --来源2011 空间2020 QQ搜索 2004群组 2005讨论组
-    luaRes.AddFromSource = data.AddFromSource
-    luaRes.FromGroupID = data.FromGroupID
-    api.api_AddFriend(CurrentQQ, luaRes)
-    return luaRes
-  --Coding end
-  
-end
-```
+[详细介绍请移步](https://github.com/IOTQQ/IOTQQ/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%B9%8BWebApi%E7%AF%87.md)
+
+ 
 ###### Plugin APi
+
 - 插件命名不受限制 xxx.lua 但是必须实现以下函数 
 
 ```lua
 --收到好友/私聊消息触发该函数
+--CurrentQQ 响应消息的QQ
+--data 消息数据 
 function ReceiveFriendMsg(CurrentQQ, data)
-    return 1
+    return 1 --1 继续处理后续插件 2 不在处理后续插件
 end
 --收到群消息触发该函数
 function ReceiveGroupMsg(CurrentQQ, data)
     return 1
 end
---收到好友相关事件触发该函数
-function ReceiveFriendEvents(CurrentQQ, data, extData)
-    return 1
-end
---收到群相关事件触发该函数
-function ReceiveGroupEvents(CurrentQQ, data, extData)
+--收到所有相关事件的集合 如群成员进群退群管理升降消息撤回、好友撤回删除等事件
+function ReceiveEvents(CurrentQQ, data, extData)
     return 1
 end
 
 ```
+[详细介绍请移步](https://github.com/IOTQQ/IOTQQ/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%B9%8BLuaApi%E7%AF%87.md)
+
 - 相关APi用法请查阅Plugins目录下的相关文件调用例程 这里不再赘述
 
 ------------
@@ -172,13 +158,13 @@ end
 ###### WebSocket APi 
 
 - **实现的功能比较少只做了几个 配合WebAPI 实现 webQQ 易如反掌**
+
 - ** 给出部分js代码**
 
 ```javascript
 <script>
     var User = localStorage.getItem('User');
-   
-    var socket = io("127.0.0.1:8888", {
+     var socket = io("127.0.0.1:8888", {
       transports: ['websocket']
     });
 
@@ -227,32 +213,30 @@ end
       $('#qrcode').attr("src", 'http://q1.qlogo.cn/g?b=qq&nk=' + data.Uin + '&s=640');
       localStorage.setItem('User', data.Uin);
       localStorage.setItem('Nick', data.Nick);
-
-      //window.location = "/main.html";
     });
 
        //获取群成员列表
-       socket.emit('GetTroopMemberList', JSON.stringify({"Uid":User+"","Group":654264644}));
-       //  //绑定群成员返回数据事件
-       socket.on('OnTroopMemberInfo',function(data){
-
+       socket.emit('GetGroupUserList', JSON.stringify({"Uid":User+"","Group":123456789}));
+       //绑定群成员返回数据事件
+       socket.on('OnGroupUserList',function(data){
+        console.log("收到群成员列表");   
         console.log(data); 
 
        });
        // //获取好友列表命令
-       //  socket.emit('GetFriendList',User);
-       //  //绑定好友返回数据事件
-       // socket.on('OnFriendlistInfo',function(data){
+      //socket.emit('GetQQUserList',User);
+      //绑定好友返回数据事件
+      socket.on('OnQQUserList',function(data){
+      console.log("收到好友列表"); 
+      console.log(data); 
 
-       //  console.log(data); 
-
-       // });
+       });
 
         //获取群列表命令 
-        //socket.emit('GetTroopList', User);
+       // socket.emit('GetGroupList', User);
         //绑定群列表返回数据事件
-       socket.on('OnTroopListInfo',function(data){
-
+       socket.on('OnGroupList',function(data){
+       console.log("收到群列表"); 
         console.log(data); 
 
        });
@@ -260,14 +244,20 @@ end
         socket.on('OnGroupMsgs',function(data){
             console.log("收到群消息");
             console.log(data);
+                   console.log(JSON.stringify(data));
 
         });
         socket.on('OnFriendMsgs',function(data){
             console.log("收到好友消息");
             console.log(data);
+                   console.log(JSON.stringify(data));
 
         });
+          socket.on('OnEvents',function(data){
+            console.log("收到相关事件");
+            console.log(JSON.stringify(data));
 
+        });
 </script> 
 ```
 ###### Web APi

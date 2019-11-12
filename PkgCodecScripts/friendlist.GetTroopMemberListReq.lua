@@ -83,6 +83,7 @@ function UnPackPkg(rawData, User)
         jceOutStream:JceReadInt(36)
         jceOutStream:JceReadInt(37)
         jceOutStream:JceReadInt(38)
+        jceOutStream:JceReadBytes(39)
 
         jceOutStream:Skip(1) --跳过struct尾 0xb
 

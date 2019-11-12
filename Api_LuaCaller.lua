@@ -81,36 +81,37 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
         --获取QQ好友列表
         ["GetQQUserList"] = function()
             --StartIndex 起始索引
-            return Api.Api_GetQQUserList(CurrentQQ, data.StartIndex)
+            --return Api.Api_GetQQUserList(CurrentQQ, data.StartIndex)
+            return Api.Api_CallFunc(CurrentQQ, "friendlist.GetFriendListReq", data)
         end,
         --获取QQ群列表
         ["GetGroupList"] = function()
             --NextToken 初始为 ""
-            return Api.Api_GetGroupList(CurrentQQ, data.NextToken)
+            --return Api.Api_GetGroupList(CurrentQQ, data.NextToken)
+            return Api.Api_CallFunc(CurrentQQ, "friendlist.GetTroopListReqV2", data)
         end,
         --获取QQ群成员列表
         ["GetGroupUserList"] = function()
             --GroupUin 群ID 首次LastUin=0
-            return Api.Api_GetGroupUserList(CurrentQQ, data.GroupUin, data.LastUin)
-        end,
-        --禁言
-        ["ShutUp"] = function()
-            --{"ShutUpType":1,"GroupID":960839480,"ShutUid":0,"ShutTime":0}
-            return Api.Api_ShutUp(CurrentQQ, data.ShutUpType, data.GroupID, data.ShutUid, data.ShutTime)
+            --return Api.Api_GetGroupUserList(CurrentQQ, data.GroupUin, data.LastUin)
+            return Api.Api_CallFunc(CurrentQQ, "friendlist.GetTroopMemberListReq", data)
         end,
         --撤回消息
         ["RevokeMsg"] = function()
             --{"GroupID":0,"MsgSeq":0,"MsgRandom":0}参数来自于 lua  ReceiveGroupMsg  事件  data 数据 data.MsgSeq, data.MsgRandom 可撤回自己发的消息 或管理员权限撤回群成员消息
-            return Api.Api_RevokeMsg(CurrentQQ, data.GroupID, data.MsgSeq, data.MsgRandom)
+            --return Api.Api_RevokeMsg(CurrentQQ, data.GroupID, data.MsgSeq, data.MsgRandom)
+            return Api.Api_CallFunc(CurrentQQ, "PbMessageSvc.PbMsgWithDraw", data)
         end,
         --搜索QQ群组
         ["SearchGroup"] = function()
             --{"Content":"深圳","Page":0} 关键词 /页数
-            return Api.Api_SearchGroup(CurrentQQ, data.Content, data.Page)
+            --return Api.Api_SearchGroup(CurrentQQ, data.Content, data.Page)
+            return Api.Api_CallFunc(CurrentQQ, "OidbSvc.0x8ba_31", data)
         end,
         --QQ赞
         ["QQZan"] = function()
-            return Api.Api_QQZan(CurrentQQ, data.UserID)
+            --return Api.Api_QQZan(CurrentQQ, data.UserID)
+            return Api.Api_CallFunc(CurrentQQ, "OidbSvc.0x7e5_4", data)
         end,
         --退出指定QQ
         ["LogOut"] = function()
@@ -138,7 +139,8 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
         end,
         --修改群名片
         ["ModifyGroupCard"] = function()
-            return Api.Api_ModifyGroupCard(CurrentQQ, data.GroupID, data.UserID, data.NewNick)
+            --return Api.Api_ModifyGroupCard(CurrentQQ, data.GroupID, data.UserID, data.NewNick)
+            return Api.Api_CallFunc(CurrentQQ, "friendlist.ModifyGroupCardReq", data)
         end,
         --获取QQ钱包余额
         ["GetBalance"] = function()
@@ -158,20 +160,22 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
         end,
         --设置头衔
         ["SetUniqueTitle"] = function()
-            return Api.Api_SetUniqueTitle(CurrentQQ, data.GroupID, data.UserID, data.NewTitle)
+            --Api.Api_SetUniqueTitle(CurrentQQ, data.GroupID, data.UserID, data.NewTitle)
+            --return {Ret = 0, Msg = string.format("%s", "ok")}
+            return Api.Api_CallFunc(CurrentQQ, "OidbSvc.0x8fc_2", data)
         end,
         --获取任意用户信息昵称头像等1
         ["GetUserInfo"] = function()
             return Api.Api_GetUserInfo(CurrentQQ, data.UserID)
         end
     }
-
     local fSwitch = switch[funcName] --switch func
 
     if fSwitch then --key exists
         luaResp = fSwitch() --do func
     else --key not found
-        luaResp = {Ret = 1, Msg = string.format("Caller %s no exists", funcName)}
+        --luaResp = {Ret = 1, Msg = string.format("Caller %s no exists %v", funcName, data)}
+        luaResp = Api.Api_CallFunc(CurrentQQ, funcName, data)
     end
     return luaResp
 end

@@ -29,6 +29,35 @@ function ReceiveGroupMsg(CurrentQQ, data)
         return 1
     end
 
+    if string.find(data.Content, "点歌i") then --发送长语音
+        keyWord = data.Content:gsub("点歌i", "")
+
+        response, error_message =
+            http.request(
+            "POST",
+            "http://192.168.1.9:7999/SilkApi/UrlToBuf",
+            {
+                body = keyWord --传入歌曲名
+            }
+        )
+        log.notice("err   %v", error_message)
+        local html = response.body --返回silk base64 buf
+        luaRes =
+            Api.Api_SendMsg(
+            CurrentQQ,
+            {
+                toUser = data.FromGroupId,
+                sendToType = 2,
+                sendMsgType = "VoiceMsg",
+                groupid = 0,
+                content = "",
+                atUser = 0,
+                voiceUrl = "",
+                voiceBase64Buf = html 
+            }
+        )
+    end
+
     if data.MsgType == "TextMsg" then --机器人智能回复接口
         response, error_message =
             http.request(

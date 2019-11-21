@@ -214,50 +214,11 @@ end
       localStorage.setItem('User', data.Uin);
       localStorage.setItem('Nick', data.Nick);
     });
+      socket.on('OnEvents',function(data){
+        console.log("收到相关事件");
+        console.log(JSON.stringify(data));
 
-       //获取群成员列表
-       socket.emit('GetGroupUserList', JSON.stringify({"Uid":User+"","Group":123456789}));
-       //绑定群成员返回数据事件
-       socket.on('OnGroupUserList',function(data){
-        console.log("收到群成员列表");   
-        console.log(data); 
-
-       });
-       // //获取好友列表命令
-      //socket.emit('GetQQUserList',User);
-      //绑定好友返回数据事件
-      socket.on('OnQQUserList',function(data){
-      console.log("收到好友列表"); 
-      console.log(data); 
-
-       });
-
-        //获取群列表命令 
-       // socket.emit('GetGroupList', User);
-        //绑定群列表返回数据事件
-       socket.on('OnGroupList',function(data){
-       console.log("收到群列表"); 
-        console.log(data); 
-
-       });
-
-        socket.on('OnGroupMsgs',function(data){
-            console.log("收到群消息");
-            console.log(data);
-                   console.log(JSON.stringify(data));
-
-        });
-        socket.on('OnFriendMsgs',function(data){
-            console.log("收到好友消息");
-            console.log(data);
-                   console.log(JSON.stringify(data));
-
-        });
-          socket.on('OnEvents',function(data){
-            console.log("收到相关事件");
-            console.log(JSON.stringify(data));
-
-        });
+    });
 </script> 
 ```
 ###### Web APi

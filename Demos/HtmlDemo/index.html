@@ -1,142 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>MacQQ For Web</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
-  <link rel="stylesheet" type="text/css" href="/asset/login/css/normalize.css" /> 
-  <link rel="stylesheet" type="text/css" href="/asset/login/css/demo.css" /> 
-  <!--必要样式--> 
-  <link rel="stylesheet" type="text/css" href="/asset/login/css/component.css" /> 
-  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script> 
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script> 
- </head> 
- <body> 
-  <div class="container demo-1"> 
-   <div class="content"> 
-    <div id="large-header" class="large-header"> 
-     <canvas id="demo-canvas"></canvas> 
-     <div class="logo_box"> 
-      <h3>MacQQ For Web</h3> 
-      <div align="center"> 
-       <img style="width: auto; height: auto; max-width: 100%;max-height: 100%;" id="qrcode" src="" alt="" />
-      </div> 
-      <br />
-      <br /> 
-      <p style="text-align: center;">请使用QQ扫描屏幕上方的二维码登陆 打开开发者调试工具即可看到相关信息Websocket &amp; Log</p> 
-      <br />
-      <br /> 
-    
-      <br />
-      <br /> 
 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <!-- /container --> 
-  <script src="/asset/login/js/TweenLite.min.js"></script> 
-  <script src="/asset/login/js/EasePack.min.js"></script> 
-  <script src="/asset/login/js/rAF.js"></script> 
-  <script src="/asset/login/js/demo-1.js"></script>  
+<head>
+  <meta charset="UTF-8" />
+  <title>MacQQ For Web</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="/asset/login/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/asset/login/css/demo.css" />
+  <!--必要样式-->
+  <link rel="stylesheet" type="text/css" href="/asset/login/css/component.css" />
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+</head>
+
+<body>
+  <div class="container demo-1">
+    <div class="content">
+      <div id="large-header" class="large-header">
+        <canvas id="demo-canvas"></canvas>
+        <div class="logo_box">
+          <h3>MacQQ For Web</h3>
+          <div align="center">
+            <img style="width: auto; height: auto; max-width: 100%;max-height: 100%;" id="qrcode" src="" alt="" />
+          </div>
+          <br />
+          <br />
+          <p style="text-align: center;">请使用QQ扫描屏幕上方的二维码登陆 打开开发者调试工具即可看到相关信息Websocket &amp; Log</p>
+          <br />
+          <br />
+
+          <br />
+          <br />
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+  <script src="/asset/login/js/TweenLite.min.js"></script>
+  <script src="/asset/login/js/EasePack.min.js"></script>
+  <script src="/asset/login/js/rAF.js"></script>
+  <script src="/asset/login/js/demo-1.js"></script>
   <script>
     var User = localStorage.getItem('User');
-   
+
     var socket = io("127.0.0.1:8888", {
       transports: ['websocket']
     });
 
     socket.on('connect',
-    function() {
+      function () {
         //从缓存或从cookies 读取历史登陆的QQ号
         //链接成功后获取用户缓存 获取成功后直接同步消息 失败直接获取二维码
         //同一浏览器会置换当前的websocket id
-    
-      if (User == null){
 
-      //获取二维码
-      socket.emit('GetQrcode', '1234', (data) =>{
-      console.log(data); // data will be 'woot'
-      var JsonPkg = JSON.parse(data);
-      $('#qrcode').attr("src", 'data:image/png;base64,' + JsonPkg.Data.BQrpic);
+        if (User == null) {
 
-       });
+          //获取二维码
+          socket.emit('GetQrcode', '1234', (data) => {
+            console.log(data); // data will be 'woot'
+            var JsonPkg = JSON.parse(data);
+            $('#qrcode').attr("src", 'data:image/png;base64,' + JsonPkg.Data.BQrpic);
 
-      }else{
+          });
 
-        socket.emit('GetWebConn', User, (data) =>{
+        } else {
+
+          socket.emit('GetWebConn', User, (data) => {
+            console.log(data);
+
+            $('#qrcode').attr("src", 'http://q1.qlogo.cn/g?b=qq&nk=' + User + '&s=640');
+          });
+
+        }
+
+      });
+    socket.on('OnCheckLoginQrcode',
+      function (data) {
+        //48未扫描 53已扫码 17 49 过期了
+        // if (data.Data.ScanStatus ==17 || data.Data.ScanStatus == 49){
+        // }
         console.log(data);
-
-        $('#qrcode').attr("src", 'http://q1.qlogo.cn/g?b=qq&nk=' + User + '&s=640');
       });
 
-      }
-     
-    })
-    socket.on('OnCheckLoginQrcode',
-    function(data) {
-      //48未扫描 53已扫码 17 49 过期了
-      // if (data.Data.ScanStatus ==17 || data.Data.ScanStatus == 49){
-      // }
-        console.log(data);
-    });
-
     socket.on('OnLoginSuccess',
-    function(data) {
+      function (data) {
 
-      // 移除所有
-      localStorage.clear();
-      console.log(data);
+        // 移除所有
+        localStorage.clear();
+        console.log(data);
 
-      $('#qrcode').attr("src", 'http://q1.qlogo.cn/g?b=qq&nk=' + data.Uin + '&s=640');
-      localStorage.setItem('User', data.Uin);
-      localStorage.setItem('Nick', data.Nick);
+        $('#qrcode').attr("src", 'http://q1.qlogo.cn/g?b=qq&nk=' + data.Uin + '&s=640');
+        localStorage.setItem('User', data.Uin);
+        localStorage.setItem('Nick', data.Nick);
+      });
+
+    socket.on('OnEvents', function (data) {
+      console.log("收到相关事件");
+      console.log(JSON.stringify(data));
+
     });
+  </script>
+</body>
 
-       //获取群成员列表
-       socket.emit('GetGroupUserList', JSON.stringify({"Uid":User+"","Group":123456789}));
-       //绑定群成员返回数据事件
-       socket.on('OnGroupUserList',function(data){
-        console.log("收到群成员列表");   
-        console.log(data); 
-
-       });
-       // //获取好友列表命令
-      //socket.emit('GetQQUserList',User);
-      //绑定好友返回数据事件
-      socket.on('OnQQUserList',function(data){
-      console.log("收到好友列表"); 
-      console.log(data); 
-
-       });
-
-        //获取群列表命令 
-       // socket.emit('GetGroupList', User);
-        //绑定群列表返回数据事件
-       socket.on('OnGroupList',function(data){
-       console.log("收到群列表"); 
-        console.log(data); 
-
-       });
-
-        socket.on('OnGroupMsgs',function(data){
-            console.log("收到群消息");
-            console.log(data);
-                   console.log(JSON.stringify(data));
-
-        });
-        socket.on('OnFriendMsgs',function(data){
-            console.log("收到好友消息");
-            console.log(data);
-                   console.log(JSON.stringify(data));
-
-        });
-          socket.on('OnEvents',function(data){
-            console.log("收到相关事件");
-            console.log(JSON.stringify(data));
-
-        });
-
-</script> 
- </body>
 </html>

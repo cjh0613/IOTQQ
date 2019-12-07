@@ -73,21 +73,21 @@ namespace TestProject
 
 
             //获取群成员的回调事件
-            socket.On("OnGroupUserList", (fn) =>
-            {
-                Console.WriteLine("OnGroupUserList\n" + ((JSONMessage)fn).MessageText);
-            });
+            // socket.On("OnGroupUserList", (fn) =>
+            // {
+            //     Console.WriteLine("OnGroupUserList\n" + ((JSONMessage)fn).MessageText);
+            // });
 
-            //获取群列表的回调事件
-            socket.On("OnGroupList", (fn) =>
-            {
-                Console.WriteLine("OnGroupList\n" + ((JSONMessage)fn).MessageText);
-            });
-            //获取好友列表的回调事件
-            socket.On("OnQQUserList", (fn) =>
-            {
-                Console.WriteLine("OnQQUserList\n" + ((JSONMessage)fn).MessageText);
-            });
+            // //获取群列表的回调事件
+            // socket.On("OnGroupList", (fn) =>
+            // {
+            //     Console.WriteLine("OnGroupList\n" + ((JSONMessage)fn).MessageText);
+            // });
+            // //获取好友列表的回调事件
+            // socket.On("OnQQUserList", (fn) =>
+            // {
+            //     Console.WriteLine("OnQQUserList\n" + ((JSONMessage)fn).MessageText);
+            // });
             //统一事件管理如好友进群事件 好友请求事件 退群等事件集合
             socket.On("OnEvents", (fn) =>
             {

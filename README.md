@@ -214,10 +214,23 @@ end
       localStorage.setItem('User', data.Uin);
       localStorage.setItem('Nick', data.Nick);
     });
-      socket.on('OnEvents',function(data){
-        console.log("收到相关事件");
-        console.log(JSON.stringify(data));
+    //统一事件管理如好友进群事件 好友请求事件 退群等事件集合
+    socket.on('OnEvents', function (data) {
+      console.log("收到相关事件");
+      console.log(JSON.stringify(data));
 
+    });
+    //收到好友消息的回调事件
+    socket.on('OnFriendMsgs', function (data) {
+      console.log("收到好友消息");
+      console.log(data);
+      console.log(JSON.stringify(data))
+    });
+    //收到群消息的回调事件
+    socket.on('OnGroupMsgs', function (data) {
+      console.log("收到群消息");
+      console.log(data);
+      console.log(JSON.stringify(data))
     });
 </script> 
 ```

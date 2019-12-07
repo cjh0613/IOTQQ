@@ -31,6 +31,15 @@ function ReceiveGroupMsg(CurrentQQ, data)
     if data.FromUserId == 111111 then -- 不缓存机器人自己发送的消息
         return 1
     end
+
+    if data.Content == "[群签到]请使用新版QQ进行查看。" then --防自动签到并撤回
+        Api.Api_CallFunc(
+            CurrentQQ,
+            "PbMessageSvc.PbMsgWithDraw",
+            {GroupID = data.FromGroupId, MsgSeq = data.MsgSeq, MsgRandom = data.MsgRandom}
+        )
+    end
+
     if groupList[data.FromGroupId] == nil then --欲处理消息的群ID 简单过滤一下
         return 1
     end
@@ -64,8 +73,18 @@ function ReceiveEvents(CurrentQQ, data, extData)
         return 1
     end
     if data.MsgType == "ON_EVENT_GROUP_REVOKE" then --监听 群撤回事件
-        str = string.format("群成 %d  成员 UserID %s 撤回了消息Seq %s \n", extData.GroupID, extData.UserID, extData.MsgSeq)
+        str =
+            string.format(
+            "群成 %d 管理员UserID %s 撤回了 成员 UserID %s 消息Seq %s \n",
+            extData.GroupID,
+            extData.AdminUserID,
+            extData.UserID,
+            extData.MsgSeq
+        )
         log.info("%s", str)
+        if extData.AdminUserID == 11111 then -- 不缓存机器人自己发送的消息
+            return 1
+        end
         c = mysql.new()
         -- 初始化mysql对象
         ok, err = c:connect({host = mysqlhost, port = 3306, database = mysqldb, user = mysqluser, password = mysqlpass})
@@ -145,7 +164,47 @@ function ReceiveEvents(CurrentQQ, data, extData)
                             fileMd5 = jData.FileMd5
                         }
                     )
+                    Sleep(1)
+                    Api.Api_SendMsg( --秒发不用上传 相当于转发
+                        CurrentQQ,
+                        {
+                            toUser = GroupID,
+                            sendToType = 2,
+                            sendMsgType = "ForwordMsg",
+                            content = "转发测试",
+                            atUser = 0,
+                            groupid = 0,
+                            voiceUrl = "",
+                            voiceBase64Buf = "",
+                            picUrl = "",
+                            picBase64Buf = "",
+                            forwordBuf = jData.ForwordBuf,
+                            forwordField = jData.ForwordField
+                        }
+                    )
                 end
+                if MsgType == "VideoMsg" then
+                    --Data {"VideoMd5":"vAxS8r28V8DKH9P1Q6JmLw==","VideoSize":1022674,"ForwordBuf":"CqYBMzA1MTAyMDEwMDA0MzYzMDM0MDIwMTAwMDIwNDY1NWI2MTM2MDIwMzdhMTNmNTAyMDQ3ODRjOTc3YjAyMDQ1ZGVhN2E3YjA0MTBiYzBjNTJmMmJkYmM1N2MwY2ExZmQzZjU0M2EyNjYyZjAyMDM3YTFhZmQwMjAxMDAwNDE0MDAwMDAwMDg2NjY5NmM2NTc0Nzk3MDY1MDAwMDAwMDQzMTMwMzAzMxIQvAxS8r28V8DKH9P1Q6JmLxoIdGVzdC5tcDQgAigBMNK1PjjQBUCACkoQeVYSLP9QCkbTkFR1IDpsilIGY2FtZXJhWJi5BWABeACQAQCYAQA=","VideoUrl":"MzA1MTAyMDEwMDA0MzYzMDM0MDIwMTAwMDIwNDY1NWI2MTM2MDIwMzdhMTNmNTAyMDQ3ODRjOTc3YjAyMDQ1ZGVhN2E3YjA0MTBiYzBjNTJmMmJkYmM1N2MwY2ExZmQzZjU0M2EyNjYyZjAyMDM3YTFhZmQwMjAxMDAwNDE0MDAwMDAwMDg2NjY5NmM2NTc0Nzk3MDY1MDAwMDAwMDQzMTMwMzAzMw==","tips":"[短视频]"}
+                    jData = json.decode(Data)
+                    Api.Api_SendMsg( --秒发不用上传 相当于转发
+                        CurrentQQ,
+                        {
+                            toUser = GroupID,
+                            sendToType = 2,
+                            sendMsgType = "ForwordMsg",
+                            content = "",
+                            atUser = 0,
+                            groupid = 0,
+                            voiceUrl = "",
+                            voiceBase64Buf = "",
+                            picUrl = "",
+                            picBase64Buf = "",
+                            forwordBuf = jData.ForwordBuf,
+                            forwordField = jData.ForwordField
+                        }
+                    )
+                end
+
                 if MsgType == "AtMsg" then
                     --Data {"Content":"@Kar98k skjjkssjkjs","UserID":123456789,"tips":"[AT消息]"}
                     Api.Api_SendMsg(

@@ -1,4 +1,4 @@
---[[v2.0.0]]
+--[[v2.0.2]]
 local log = require("log")
 local Api = require("coreApi")
 local json = require("json")
@@ -28,6 +28,9 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
                 --发送图片的网络地址 文本型
                 picBase64Buf = data.picBase64Buf,
                 --发本地送图片的buf 转 bas64 编码 文本型
+                forwordBuf = data.forwordBuf, --用于转发的buf
+                forwordField = data.forwordField,
+                 --对应协议所转发的字段
                 fileMd5 = data.fileMd5, --通过md5 值发送 图片 文本型
                 replayInfo = nil
             }

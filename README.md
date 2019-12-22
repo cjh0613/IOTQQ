@@ -261,6 +261,12 @@ end
 - **😄集群模式暂未开放**
 - **😄多账号登陆需授权**
 
+### 相关文章
+
+- **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
+- **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
+
+
 ### 感谢 
  - **gopher-lua [https://github.com/yuin/gopher-lua](https://github.com/yuin/gopher-lua)**
  - **gluahttp [https://github.com/cjoudrey/gluahttp](https://github.com/cjoudrey/gluahttp)**

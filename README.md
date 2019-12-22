@@ -261,10 +261,15 @@ end
 - **😄集群模式暂未开放**
 - **😄多账号登陆需授权**
 
-### 相关文章
+#### ❤️以下文章或项目排名不分先后 🙏感谢贡献 ❤️
 
+### 相关文章
 - **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
 - **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
+
+### 相关项目
+- **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**
+- **😄 [IOTQQ机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
 
 
 ### 感谢 

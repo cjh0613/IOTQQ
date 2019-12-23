@@ -11,7 +11,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
     ShowType = math.random(40000, 40005)
     log.info("ShowType %d", ShowType)
     if (string.find(data.Content, "闪我")) then
-        Api.Api_SendMsg( --通过图片md5发送图片 秒发不用上传 相当于转发
+        Api.Api_SendMsg( --通过Url发送图片
             CurrentQQ,
             {
                 toUser = data.FromGroupId,
@@ -32,7 +32,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
     end
     if (data.MsgType == "AtMsg") and (string.find(data.Content, "闪她")) then
         jData = json.decode(data.Content)
-        Api.Api_SendMsg( --通过图片md5发送图片 秒发不用上传 相当于转发
+        Api.Api_SendMsg( --通过Url发送图片
             CurrentQQ,
             {
                 toUser = data.FromGroupId,
@@ -95,7 +95,7 @@ function ReceiveEvents(CurrentQQ, data, extData)
         if groupList[data.FromUin] == nil then --欲处理消息的群ID 简单过滤一下
             return 1
         end
-        Api.Api_SendMsg(
+        Api.Api_SendMsg(--通过Url发送图片
             CurrentQQ,
             {
                 toUser = data.FromUin,

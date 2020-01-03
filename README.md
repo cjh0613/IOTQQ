@@ -268,8 +268,10 @@ end
 - **😄 [精简机器人插件](http://118.25.41.32/CB/index.php/archives/128/)**
 - **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
 - **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
+- **😄 [使用Python制作IOTQQ插件](https://mcenjoy.cn/152/)**
 
 ### 相关项目
+- **😄 [IOTQQ机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**
 - **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**
 - **😄 [IOTQQ机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
 

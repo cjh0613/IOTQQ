@@ -269,6 +269,7 @@ end
 - **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
 - **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
 - **😄 [使用Python制作IOTQQ插件](https://mcenjoy.cn/152/)**
+- **😄 [IOTQQ WebApi接口文档](https://www.showdoc.cc/IOTQQ)**
 
 ### 相关项目
 - **😄 [IOTQQ机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**

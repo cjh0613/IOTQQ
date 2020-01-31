@@ -27,6 +27,8 @@ function PackPkg(t, User)
     return 0
 end
 function UnPackPkg(rawData, User)
+    --str = string.format("UnPackPkg %s User %s", PkgCodec.HexDump(rawData), User.StrUin)
+    --log.notice("%s", str)
     jceOutStream = PkgCodec.newBufferStream(rawData)
     jceOutStream:JceReadMap("GTMLRESP", "friendlist.GetTroopMemberListResp", 0)
     jceOutStream:JceReadStruct()
@@ -48,23 +50,23 @@ function UnPackPkg(rawData, User)
         Gender = jceOutStream:JceReadInt(3)
         NickName = jceOutStream:JceReadString(4)
         Status = jceOutStream:JceReadInt(5)
-        MemberEmail = jceOutStream:JceReadString(6)
+        ShowName = jceOutStream:JceReadString(6)
         GroupCard = jceOutStream:JceReadString(8)
         jceOutStream:JceReadInt(9)
         jceOutStream:JceReadString(10)
-        jceOutStream:JceReadString(11)
-        jceOutStream:JceReadString(12)
-        Remark = jceOutStream:JceReadString(13)
-        jceOutStream:JceReadInt(14)
-        JoinGroupTime = jceOutStream:JceReadInt(15)
-        SpeakTime = jceOutStream:JceReadInt(16)
-        jceOutStream:JceReadInt(17)
-        jceOutStream:JceReadInt(18)
+        Email = jceOutStream:JceReadString(11)
+        Memo = jceOutStream:JceReadString(12)
+        AutoRemark = jceOutStream:JceReadString(13)
+        MemberLevel = jceOutStream:JceReadInt(14)
+        JoinTime = jceOutStream:JceReadInt(15)
+        LastSpeakTime = jceOutStream:JceReadInt(16)
+        CreditLevel = jceOutStream:JceReadInt(17)
+        GroupAdmin = jceOutStream:JceReadInt(18)
         jceOutStream:JceReadInt(19)
         jceOutStream:JceReadInt(20)
         jceOutStream:JceReadInt(21)
         jceOutStream:JceReadInt(22)
-        RankDes = jceOutStream:JceReadString(23)
+        SpecialTitle = jceOutStream:JceReadString(23)
         jceOutStream:JceReadInt(24)
         jceOutStream:JceReadString(25)
         jceOutStream:JceReadInt(26)
@@ -94,12 +96,17 @@ function UnPackPkg(rawData, User)
             Gender = Gender,
             NickName = NickName,
             Status = Status,
-            MemberEmail = MemberEmail,
+            ShowName = ShowName,
+            GroupAdmin = GroupAdmin,
             GroupCard = GroupCard,
-            Remark = Remark,
-            JoinGroupTime = JoinGroupTime,
-            SpeakTime = SpeakTime,
-            RankDes = RankDes
+            Email = Email,
+            Memo = Memo,
+            AutoRemark = AutoRemark,
+            MemberLevel = MemberLevel,
+            JoinTime = JoinTime,
+            LastSpeakTime = LastSpeakTime,
+            CreditLevel = CreditLevel,
+            SpecialTitle = SpecialTitle
         }
 
         MemberListInfo.MemberList[i] = info

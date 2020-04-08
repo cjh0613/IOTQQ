@@ -74,9 +74,9 @@ function UnPackPkg(rawData, User)
         jceOutStream:JceReadString(16)
         jceOutStream:JceReadString(17)
         jceOutStream:JceReadInt(18)
+        jceOutStream:Skip(5)
         --str = string.format("GetFriendListResp %s len %s", PkgCodec.HexDump(jceOutStream:GetBuffer()), len)
         --log.info("%s", str)
-        jceOutStream:Skip(5)
         for i = 1, 4, 1 do
             jceOutStream:JceReadInt(0)
             jceOutStream:Skip(1)
@@ -127,6 +127,7 @@ function UnPackPkg(rawData, User)
         jceOutStream:JceReadBytes(56)
         jceOutStream:JceReadInt(57)
         jceOutStream:JceReadInt(58)
+        jceOutStream:JceReadBytes(59)
         jceOutStream:Skip(1) --跳过struct尾 0xb
 
         info = {

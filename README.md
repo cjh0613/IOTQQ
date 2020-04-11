@@ -42,10 +42,7 @@ IOTQQ --为跨平台而生
 
 **项目介绍**
 
-*⚠️运行项目的必要条件 需要外网IP用来接收GitHub的WebHook通知 非外网用户可以借助转发工具来解决 如*
->frp
-
->ngrok
+* ⚠️ 授权登陆此网站换取Token [Gitter Developer](https://developer.gitter.im/apps)
 
 - **🆓**
 - **🌞采用独特的插件机制 --Lua**
@@ -58,73 +55,33 @@ IOTQQ --为跨平台而生
 #### 💗开启运行之旅
 
 ------------
-```go
-fmt.Println("Github Token 会用来创建通知仓库 如果不放心使用 请建立小号 初始化所有操作记得清空Bot-Notify 仓库")
-```
 
-**1⃣️下载对应平台版本的二进制包 [传送门](https://github.com/IOTQQ/IOTQQ/releases "1")**
+** 1⃣️下载对应平台版本的二进制包 [传送门](https://gitter.im/IOTQQTalk/IOTQQ) **
 
-**2⃣️申请GitHub Token 用于GitHubApi访问 默认限制每小时60次请求 有了Token可以5000/h
- 申请流程登陆GitHub后->settings-> Developer settings->Developer settings->Generate New Token
- 开启全部Token权限!全部☑️**
+** 2⃣️申请Gitter Developer 可用GitHub 授权登陆Gitter Developer 网站 换取Token **
+
+![](https://camo.githubusercontent.com/b00bfed9f220fcb0cdeb8fb50b51875ac732b9ef/68747470733a2f2f73312e617831782e636f6d2f323032302f30342f31312f4748437168522e6a7067)
  
-**3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序**
+** 3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序 **
 
 
-      #默认使用本地配置文件 暂时不支持集群模式
-      EnabledEtcd = false
       #自定义监听服务端口
       Port = "0.0.0.0:8888"
-        [Etcd]
-          Nodes = ["", "", ""]
-        [GithubConf]
-          #必填 GitHub申请回来的Token
-          Token = ""
-          #初始化软件自动生成 请勿填写
-          FullName = ""
-          #初始化软件自动生成 请勿填写
-          IssuesNum = 1
-          #必填域名端口替换成外网的http://IP:PORT/v1/Github/WebHook
-          WebHookUrl = ""
-          #初始化软件自动生成 请勿填写
-          BitFlag = 0
-          #初始化软件自动生成 请勿填写
-          BitCtrl = 0
-          #初始化软件自动生成 请勿填写
-          CommentID = 0 
-          #初始化软件自动生成 请勿填写
-          WebHookId = 0
+      #工作线程 默认50
+      WorkerThread = 50
+      #IOTQQ版本
+      IOTQQVer = "v3.0.0"
+      #Gitter Token
+      Token = ""
+      
+        
 
-
-    
+  
+![](https://camo.githubusercontent.com/e74c156fca18fe94ae211bcd0a8bd9604aa94a98/68747470733a2f2f73312e617831782e636f6d2f323032302f30342f31312f4748434f39312e6a7067)
 
 **4⃣️运行程序 执行命令 `./IOTQQ` 默认开启8888端口作为WebSokcet/WebApi的服务端口**
 
-`服务器用户  如:服务器外网IP 为123.123.123.123 且防火墙允许8888端口 这时访问一下URL http://123.123.123.123:8888/v1/Github/WebHook 如果返回为OK 则此时的URL 为WebHookUrl 将其填写到 CoreConf.conf 的字段WebHookUrl后保存`
-
-`转发用户 公益的FRP有很多 配置好转发规则 将本地的服务端口8888映射出去 如映射到外网的9909端口 这时访问一下 http://公益FRP域名:9909/v1/Github/WebHook 如果返回为OK 则此时的URL 为WebHookUrl 将其填写到 CoreConf.conf 的字段WebHookUrl后保存`
-
-`您的服务器信息均会不暴露 No DDos,No Attack 仅作为GitHub WebHook通知`
-
-`UsersConf目录为本地用户缓存数据 登录设备信息等 便于复用 切勿随意创建 默认启动程序会自动登录`
-
-`仓库中Plugins与二进制压缩包里Plugins 文件不同 可手动合并`
-
-**5⃣️一切准备就绪 当你外网服务器IP:PORT 或(内网用户)经过转发OK时 在打开浏览器访问WebHookUrl 浏览器返回OK则可以进行下一步 不通请检查防火墙 or 转发配置**
-
-------------
-
-
-#### ❤️初始化服务
-
-- **服务运行成功后访问URL http://IP:PORT/v1/Github/InstallService 初始化成功后控制台会提示 `Auth初始化完成` 若未提示 重复上述操作 初始化完成后就可以 🌊了**
-
-![](https://camo.githubusercontent.com/006aa8615ba21f0cd3b0a1b53758966a0462c4f9/687474703a2f2f67636861742e717069632e636e2f67636861747069635f6e65772f313730303438373437382f3936303833393438302d323533343333353035332d41453433374137393535453130444234384336333239463638434535463232412f303f7675696e3d353334373036333530267465726d3d32353526706963747970653d30)
-
-![](https://camo.githubusercontent.com/de70ec04c277a71980e26e3746214708adc9a00a/68747470733a2f2f67636861742e717069632e636e2f67636861747069635f6e65772f313730303438373437382f3936303833393438302d323533343333353035332d37333445333142303633444538423539433641354538413145463546373834382f303f7675696e3d353334373036333530267465726d3d32353526706963747970653d30)
-
-- **若没有提示`Auth初始化完成`请检查你的防火墙或GitHub账号是否禁用(需解封) 也可以联系我排除问题**
-- **获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRcode 扫码登陆即可**
+`首次登陆会拉取部分脚本并有详细输出 当出现 Everything is ok! 说明服务就绪 获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRcode 扫码登陆即可`
 
 ------------
 

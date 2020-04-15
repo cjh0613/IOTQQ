@@ -234,8 +234,7 @@ end
 - **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**
 - **😄 [IOTQQ机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
 - **😄 [IOTQQ的Python SDK](https://github.com/golezi/pyiotqq)**
-- **😄 [JavaSocketDemo](https://github.com/ziyan901/JavaSocketDemo)**
-- **😄 [Java版小冰娱乐功能转发](https://github.com/ziyan901/springboot-iotqq)**
+- **😄 [C# 插件 By:枫林](https://github.com/fenglindubu/IOTQQ_Socket)**
 
 ### 感谢 
  - **gopher-lua [https://github.com/yuin/gopher-lua](https://github.com/yuin/gopher-lua)**

@@ -1,4 +1,4 @@
-IOTQQ --为跨平台而生
+IOTBOT --为跨平台而生
 
 **运行在Mac平台**
 
@@ -17,17 +17,17 @@ IOTQQ --为跨平台而生
 ![路由器](https://camo.githubusercontent.com/139a303674c16c57c98e94fc729cd17094127214/68747470733a2f2f73322e617831782e636f6d2f323031392f31302f30332f75304e76544b2e6d642e706e67)
 
 ### ⚠️使用协议⚠️
-- **IOTQQ 不得用于包括且不限于~~赌博、色情、云盘、政治~~ 等网络违法违规服务，违者必究**
-- **用户不得使用 IOTQQ 来进行批量业务，如：批量加群，加好友等。**
+- **IOTBOT 不得用于包括且不限于~~赌博、色情、云盘、政治~~ 等网络违法违规服务，违者必究**
+- **用户不得使用 IOTBOT 来进行批量业务，如：批量加群，加好友等。**
 - **用户在使用本软件过程中，应遵守当地法律法规与深圳市腾讯计算机系统有限公司用户协议中相关行为规范，且用户不能使用本软件进行以下行为，包括但不限于：广告传播、黑产、黄、赌、毒、PC蛋蛋、北京赛车、黑色产业、灰色产业、算账下注、群发、批量加群等任何违法犯罪或与犯罪相关，用户使用本软件进行相关违法犯罪的行为，均应由用户自行承担，IOTQQ不对用户的任何言行与行为承担任何责任**
-- **免责声明：IOTQQ软件是一款基于MacQQ协议的AI机器人软件，主要用于活跃QQ群气氛、管理群、群内娱乐活动等，协议版权归属于深圳市腾讯计算机系统有限公司所有， 如有侵权请联系邮箱(1700487478@qq.com)，将会对软件下架并删除相关内容。**
+- **免责声明：IOTBOT 软件是一款基于MacQQ协议的AI机器人软件，主要用于活跃QQ群气氛、管理群、群内娱乐活动等，协议版权归属于深圳市腾讯计算机系统有限公司所有， 如有侵权请联系邮箱(1700487478@qq.com)，将会对软件下架并删除相关内容。**
 
 ### 🆕树莓派运行展示🆕
 - **[芝麻开门 VNC](http://161.117.255.15:43288/vnc.html) 密码12345678**
 
 ------------
 
-|  IOTQQ功能 | Free  ⬆️              |
+|  IOTBOT 功能 | Free  ⬆️              |
 | ------------- | ------------------------------ |
 | `好友消息 收发语音文字图文XML/JSON`| ✅     |
 | `群组消息 收发语音文字图文XML/JSON`   |  ✅    |
@@ -42,7 +42,7 @@ IOTQQ --为跨平台而生
 
 **项目介绍**
 
-* ⚠️ 授权登陆此网站换取Token [Gitter Developer](https://developer.gitter.im/apps)
+*⚠️ 授权登陆此网站换取Token [Gitter Developer](https://developer.gitter.im/apps)
 
 - **🆓**
 - **🌞采用独特的插件机制 --Lua**
@@ -56,20 +56,20 @@ IOTQQ --为跨平台而生
 
 ------------
 
-** 1⃣️下载对应平台版本的二进制包 [传送门](https://gitter.im/IOTQQTalk/IOTQQ) **
+**1⃣️下载对应平台版本的二进制包 [传送门](https://gitter.im/IOTQQTalk/IOTQQ) **
 
-** 2⃣️申请Gitter Developer 可用GitHub 授权登陆Gitter Developer 网站 换取Token **
+**2⃣️申请Gitter Developer 可用GitHub 授权登陆Gitter Developer 网站 换取Token **
 
 ![](https://camo.githubusercontent.com/b00bfed9f220fcb0cdeb8fb50b51875ac732b9ef/68747470733a2f2f73312e617831782e636f6d2f323032302f30342f31312f4748437168522e6a7067)
  
-** 3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序 **
+**3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序 **
 
 
       #自定义监听服务端口
       Port = "0.0.0.0:8888"
       #工作线程 默认50
       WorkerThread = 50
-      #IOTQQ版本
+      #IOTBOT版本
       IOTQQVer = "v3.0.0"
       #Gitter Token
       Token = ""
@@ -82,6 +82,10 @@ IOTQQ --为跨平台而生
 **4⃣️运行程序 执行命令 `./IOTQQ` 默认开启8888端口作为WebSokcet/WebApi的服务端口**
 
 `首次登陆会拉取部分脚本并有详细输出 当出现 Everything is ok! 说明服务就绪 获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRcode 扫码登陆即可`
+
+**5⃣️控制面板 访问http://IP:PORT**
+
+![](https://camo.githubusercontent.com/6600166bc0504b9cbdca07ba7967fb25a174b02d/68747470733a2f2f6674702e626d702e6f76682f696d67732f323032302f30342f396435346339383761323731613939302e706e67)
 
 ------------
 
@@ -221,17 +225,17 @@ end
 #### ❤️以下文章或项目排名不分先后 🙏感谢贡献 ❤️
 
 ### 相关文章
-- **😄 [IOTQQ从1开始](https://blog.fbicloud.com/articles/2019/09/29/1569767839256.html)**
+- **😄 [机器人从1开始](https://blog.fbicloud.com/articles/2019/09/29/1569767839256.html)**
 - **😄 [精简机器人插件](http://47.111.230.167/index.php/archives/128/)**
 - **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
 - **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
 - **😄 [使用Python制作IOTQQ插件](https://mcenjoy.cn/152/)**
-- **😄 [IOTQQ WebApi接口文档](https://www.showdoc.cc/IOTQQ)**
+- **😄 [IOTBOT WebApi接口文档](https://www.showdoc.cc/IOTQQ)**
 - **😄 [使用Go制作IOTQQ插件](https://mcenjoy.cn/174/)**
 
 ### 相关项目
 - **😄 [仓鼠的QQ Bot框架-Java版本](https://github.com/ViosinDeng/HamsterBot-IOTQQ)**
-- **😄 [IOTQQ机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**
+- **😄 [机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**
 - **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**
 - **😄 [IOTQQ机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
 - **😄 [IOTQQ的Python SDK](https://github.com/golezi/pyiotqq)**
@@ -242,6 +246,7 @@ end
  - **gluahttp [https://github.com/cjoudrey/gluahttp](https://github.com/cjoudrey/gluahttp)**
  - **TarsGo [https://github.com/TarsCloud/TarsGo](https://github.com/TarsCloud/TarsGo)**
  - **BeegoLog [https://github.com/beego](https://github.com/beego)**
+ - **AdminLTE [AdminLTE](https://github.com/ColorlibHQ/AdminLTE)**
  
  ### 交流裙
  - ![](https://camo.githubusercontent.com/77638ebe9b1c621da9395afc5af7bcb454459d3f/68747470733a2f2f6674702e626d702e6f76682f696d67732f323032302f30342f393233623939383431336136643334342e6a7067)

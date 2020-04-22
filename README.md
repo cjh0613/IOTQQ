@@ -42,7 +42,7 @@ IOTBOT --为跨平台而生
 
 **项目介绍**
 
-*⚠️ 授权登陆此网站换取Token [Gitter Developer](https://developer.gitter.im/apps)
+* ⚠️ 授权登陆此网站换取Token [Gitter Developer](https://developer.gitter.im/apps)
 
 - **🆓**
 - **🌞采用独特的插件机制 --Lua**
@@ -56,13 +56,13 @@ IOTBOT --为跨平台而生
 
 ------------
 
-**1⃣️下载对应平台版本的二进制包 [传送门](https://gitter.im/IOTQQTalk/IOTQQ) **
+**1⃣️下载对应平台版本的二进制包 [传送门](https://gitter.im/IOTQQTalk/IOTQQ)**
 
-**2⃣️申请Gitter Developer 可用GitHub 授权登陆Gitter Developer 网站 换取Token **
+**2⃣️申请Gitter Developer 可用GitHub 授权登陆Gitter Developer 网站 换取Token**
 
 ![](https://camo.githubusercontent.com/b00bfed9f220fcb0cdeb8fb50b51875ac732b9ef/68747470733a2f2f73312e617831782e636f6d2f323032302f30342f31312f4748437168522e6a7067)
  
-**3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序 **
+**3⃣️填写配置文件CoreConf.conf  首先配置Token 后启动程序**
 
 
       #自定义监听服务端口
@@ -76,14 +76,13 @@ IOTBOT --为跨平台而生
       
         
 
-  
 ![](https://camo.githubusercontent.com/e74c156fca18fe94ae211bcd0a8bd9604aa94a98/68747470733a2f2f73312e617831782e636f6d2f323032302f30342f31312f4748434f39312e6a7067)
 
 **4⃣️运行程序 执行命令 `./IOTQQ` 默认开启8888端口作为WebSokcet/WebApi的服务端口**
 
 `首次登陆会拉取部分脚本并有详细输出 当出现 Everything is ok! 说明服务就绪 获取登陆二维码 访问Url http://IP:PORT/v1/Login/GetQRcode 扫码登陆即可`
 
-**5⃣️控制面板 访问http://IP:PORT**
+**5⃣️控制面板 精力有限 UI可能存在大量BUG 请自行修复 访问http://IP:PORT**
 
 ![](https://camo.githubusercontent.com/6600166bc0504b9cbdca07ba7967fb25a174b02d/68747470733a2f2f6674702e626d702e6f76682f696d67732f323032302f30342f396435346339383761323731613939302e706e67)
 
@@ -237,7 +236,7 @@ end
 - **😄 [仓鼠的QQ Bot框架-Java版本](https://github.com/ViosinDeng/HamsterBot-IOTQQ)**
 - **😄 [机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**
 - **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**
-- **😄 [IOTQQ机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
+- **😄 [IOTBOT机器人框架开发的web版机器人框架](https://github.com/CB-ym/IOTQQ_web)**
 - **😄 [IOTQQ的Python SDK](https://github.com/golezi/pyiotqq)**
 - **😄 [C# 插件 By:枫林](https://github.com/fenglindubu/IOTQQ_Socket)**
 

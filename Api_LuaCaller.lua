@@ -32,7 +32,9 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
                 forwordField = data.forwordField,
                  --对应协议所转发的字段
                 fileMd5 = data.fileMd5, --通过md5 值发送 图片 文本型
-                replayInfo = nil
+                replayInfo = nil,
+                flashPic = data.flashPic --是否所发图片是否为发送闪照 true 闪照 false 普通发送
+                
             }
 
             if data.replayInfo ~= nil then

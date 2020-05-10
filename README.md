@@ -209,7 +209,7 @@ end
 - **请导入仓库中的WebAPI.json到Chrome的Restlet Client - REST API Testing插件中**
 
 
-- ![WEBAPI](https://camo.githubusercontent.com/7f14b2ca2de14d40fc2d127392eea3fa04c78788/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30392f30322f634e596a48676d52366f6244324c462e706e67)
+![WEBAPI](https://camo.githubusercontent.com/7f14b2ca2de14d40fc2d127392eea3fa04c78788/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30392f30322f634e596a48676d52366f6244324c462e706e67)
 
 
 - **插件下载地址[Restlet Client](https://chrome.google.com/webstore/detail/aejoelaoggembcahagimdiliamlcdmfm "1")**
@@ -224,7 +224,6 @@ end
 #### ❤️以下文章或项目排名不分先后 🙏感谢贡献 ❤️
 
 ### 相关文章
-- **😄 [机器人从1开始](https://blog.fbicloud.com/articles/2019/09/29/1569767839256.html)**
 - **😄 [精简机器人插件](http://47.111.230.167/index.php/archives/128/)**
 - **😄 [实现一个“人工智能”QQ机器人！](https://segmentfault.com/a/1190000021259760)**
 - **😄 [实现一个“人工智能”QQ机器人！续](https://segmentfault.com/a/1190000021350469)**
@@ -233,6 +232,7 @@ end
 - **😄 [使用Go制作IOTQQ插件](https://mcenjoy.cn/174/)**
 
 ### 相关项目
+- **😄 [color_pic插件](https://github.com/yuban10703/IOTQQ-color_pic/)**
 - **😄 [仓鼠的QQ Bot框架-Java版本](https://github.com/ViosinDeng/HamsterBot-IOTQQ)**
 - **😄 [机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**
 - **😄 [QQ群反垃圾机器人](https://github.com/rockswang/qqcensorbot)**

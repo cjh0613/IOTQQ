@@ -230,6 +230,8 @@ end
 - **😄 [使用Go制作IOTQQ插件](https://mcenjoy.cn/174/)**
 
 ### 相关项目
+
+- **😄 [python-iotbot](https://github.com/xiyaowong/python-iotbot)**
 - **😄 [color_pic插件](https://github.com/yuban10703/IOTQQ-color_pic/)**
 - **😄 [仓鼠的QQ Bot框架-Java版本](https://github.com/ViosinDeng/HamsterBot-IOTQQ)**
 - **😄 [机器人插件模板Python](https://github.com/mcoo/iotqq-plugins-demo)**

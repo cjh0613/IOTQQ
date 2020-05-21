@@ -75,7 +75,7 @@ function Api_LuaCaller(CurrentQQ, funcName, data)
         end,
         --添加QQ好友
         ["AddQQUser"] = function()
-            luaRes = Api.Api_GetUserAddFriendSetting(CurrentQQ, data.AddUserUid, data.Content)
+            luaRes = Api.Api_GetUserAddFriendSetting(CurrentQQ, data.AddUserUid, data.AddFromSource, data.Content)
             luaRes.Content = data.Content --添加好友理由 我是.xxxx想请求添加你为好友
             --来源2011 空间2020 QQ搜索 2004群组 2005讨论组
             luaRes.AddFromSource = data.AddFromSource

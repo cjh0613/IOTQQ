@@ -23,7 +23,7 @@ IOTBOT --为跨平台而生
 - **免责声明：IOTBOT 软件是一款基于MacQQ协议的AI机器人软件，主要用于活跃QQ群气氛、管理群、群内娱乐活动等，协议版权归属于深圳市腾讯计算机系统有限公司所有， 如有侵权请联系邮箱(1700487478@qq.com)，将会对软件下架并删除相关内容。**
 
 ### 🆕树莓派运行展示🆕
-- **[芝麻开门 VNC](http://47.74.212.187:43288/vnc.html) 密码12345678**
+- **[芝麻开门 VNC](http://35.221.206.121:43288/vnc.html) 密码12345678**
 
 ------------
 
@@ -126,7 +126,7 @@ end
 
 - **实现的功能比较少只做了几个 配合WebAPI 实现 webQQ 易如反掌**
 
-- ** 给出部分js代码**
+- **给出部分js代码**
 
 ```javascript
 <script>
@@ -230,7 +230,7 @@ end
 - **😄 [使用Go制作IOTQQ插件](https://mcenjoy.cn/174/)**
 
 ### 相关项目
-
+- **😄 [IOTQQ_Plugins](https://github.com/MengXin001/IOTQQ_Plugins)**
 - **😄 [python-iotbot](https://github.com/xiyaowong/python-iotbot)**
 - **😄 [color_pic插件](https://github.com/yuban10703/IOTQQ-color_pic/)**
 - **😄 [仓鼠的QQ Bot框架-Java版本](https://github.com/ViosinDeng/HamsterBot-IOTQQ)**

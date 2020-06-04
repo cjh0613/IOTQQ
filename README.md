@@ -230,6 +230,7 @@ end
 - **😄 [使用Go制作IOTQQ插件](https://mcenjoy.cn/174/)**
 
 ### 相关项目
+- **😄 [LuaPlugins玩具](https://github.com/XJLZ/LuaPlugins)**
 - **😄 [IOTQQ_Plugins](https://github.com/MengXin001/IOTQQ_Plugins)**
 - **😄 [python-iotbot](https://github.com/xiyaowong/python-iotbot)**
 - **😄 [color_pic插件](https://github.com/yuban10703/IOTQQ-color_pic/)**
